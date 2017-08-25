@@ -6,9 +6,10 @@
             url: 'JSON/database.json',
             dataType: 'json',
             success: function (data) {
+                console.log("entre");
                 //console.log(JSON.stringify(data));
                 $.each(data, function (key, val) {
-                    //console.log(val.colorIdentity);
+                    console.log(val.colorIdentity);
                     var xmlhttp = new XMLHttpRequest();
                     xmlhttp.onreadystatechange = function () {
                         if (this.readyState === 4 && this.status === 200) {
@@ -16,8 +17,7 @@
                         }
                     };
                     xmlhttp.open("GET", "php/magic.php?artist=" + val.artist + "&cmc=" + val.cmc + "&colorIdentity=" + val.colorIdentity + "&colors=" + val.colors + "&edition=" + val.edition
-                        + "&manaCost=" + val.manaCost + "&name=" + val.name + "&number=" + val.number + "&numberOfCardsOfEdition=" + val.numberOfCardsOfEdition + "&rarity=" + val.rarity
-                        + "&text=" + val.text + "&types=" + val.types, true);
+                        + "&manaCost=" + val.manaCost + "&name=" + val.name + "&power=" + val.power + "&rarity=" + val.rarity + "&text=" + val.text + "&toughness=" + val.toughness + "&types=" + val.types, true);
                     xmlhttp.send();
 
                 });

@@ -7,7 +7,7 @@ $mysql_db = 'magic';
 $conn = mysqli_connect($mysql_host,$mysql_userB,$mysql_passB,$mysql_db);
 
 if(isset($_GET['artist']) && isset($_GET['cmc']) && isset($_GET['colorIdentity']) && isset($_GET['colors']) && isset($_GET['edition']) && isset($_GET['manaCost'])
-&& isset($_GET['name']) && isset($_GET['number']) && isset($_GET['numberOfCardsOfEdition']) && isset($_GET['rarity']) && isset($_GET['text']) && isset($_GET['types']) ){
+&& isset($_GET['name']) && isset($_GET['power']) && isset($_GET['rarity']) && isset($_GET['text']) && isset($_GET['toughness']) && isset($_GET['types']) ){
 
 	$artist = mysqli_real_escape_string($conn,$_GET['artist']);
 	$cmc = mysqli_real_escape_string($conn,$_GET['cmc']);
@@ -16,14 +16,14 @@ if(isset($_GET['artist']) && isset($_GET['cmc']) && isset($_GET['colorIdentity']
 	$edition = mysqli_real_escape_string($conn,$_GET['edition']);
 	$manaCost = mysqli_real_escape_string($conn,$_GET['manaCost']);
 	$name = mysqli_real_escape_string($conn,$_GET['name']);
-	$number = mysqli_real_escape_string($conn,$_GET['number']);
-	$numberOfCardsOfEdition = mysqli_real_escape_string($conn,$_GET['numberOfCardsOfEdition']);
+	$power = mysqli_real_escape_string($conn,$_GET['power']);
 	$rarity = mysqli_real_escape_string($conn,$_GET['rarity']);
 	$text = mysqli_real_escape_string($conn,$_GET['text']);
+    $toughness = mysqli_real_escape_string($conn,$_GET['toughness']);
 	$types = mysqli_real_escape_string($conn,$_GET['types']);
 
-	$sql = "INSERT INTO cards (artist,cMC,colorIdentity,colors,edition,manaCost,name,numbers,numberOfCardsOfEdition,rarity,texts,types) VALUES ('$artist','$cmc','$colorIdentity','$colors','$edition','$manaCost',
-	'$name','$number','$numberOfCardsOfEdition','$rarity','$text','$types')";
+	$sql = "INSERT INTO cards (artist,cMC,colorIdentity,colors,edition,manaCost,name,powers,rarity,texts,toughness,types) VALUES ('$artist','$cmc','$colorIdentity','$colors','$edition','$manaCost',
+	'$name','$power','$rarity','$text','$toughness','$types')";
 
 	$conn->query($sql);
 	echo $sql;
