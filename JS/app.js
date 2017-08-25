@@ -1,0 +1,44 @@
+﻿$(function (){
+
+    $('#btnSubmit').click(function () {
+
+        $.ajax({
+            url: 'JSON/database.json',
+            dataType: 'json',
+            success: function (data) {
+                //console.log(JSON.stringify(data));
+                $.each(data, function (key, val) {
+                    //console.log(val.colorIdentity);
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function () {
+                        if (this.readyState === 4 && this.status === 200) {
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "php/magic.php?artist=" + val.artist + "&cmc=" + val.cmc + "&colorIdentity=" + val.colorIdentity + "&colors=" + val.colors + "&edition=" + val.edition
+                        + "&manaCost=" + val.manaCost + "&name=" + val.name + "&number=" + val.number + "&numberOfCardsOfEdition=" + val.numberOfCardsOfEdition + "&rarity=" + val.rarity
+                        + "&text=" + val.text + "&types=" + val.types, true);
+                    xmlhttp.send();
+
+                });
+            },
+            statusCode: {
+                404: function () {
+                    alert('There was a problem with the server.  Try again soon!');
+                }
+            }
+        });
+    });
+
+    var name = document.getElementById('inputSearch');
+    name.addEventListener('input', function () {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "php/search.php?name=" + name.value, true);
+        xmlhttp.send();
+    });
+});
