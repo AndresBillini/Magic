@@ -6,10 +6,9 @@
             url: 'JSON/database.json',
             dataType: 'json',
             success: function (data) {
-                console.log("entre");
-                //console.log(JSON.stringify(data));
+
                 $.each(data, function (key, val) {
-                    console.log(val.colorIdentity);
+
                     var xmlhttp = new XMLHttpRequest();
                     xmlhttp.onreadystatechange = function () {
                         if (this.readyState === 4 && this.status === 200) {

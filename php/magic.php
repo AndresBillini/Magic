@@ -22,7 +22,7 @@ if(isset($_GET['artist']) && isset($_GET['cmc']) && isset($_GET['colorIdentity']
     $toughness = mysqli_real_escape_string($conn,$_GET['toughness']);
 	$types = mysqli_real_escape_string($conn,$_GET['types']);
 
-	$sql = "INSERT INTO cards (artist,cMC,colorIdentity,colors,edition,manaCost,name,powers,rarity,texts,toughness,types) VALUES ('$artist','$cmc','$colorIdentity','$colors','$edition','$manaCost',
+	$sql = "INSERT INTO cards (artist,cMC,colorIdentity,colors,edition,manaCost,name,power,rarity,texts,toughness,types) VALUES ('$artist','$cmc','$colorIdentity','$colors','$edition','$manaCost',
 	'$name','$power','$rarity','$text','$toughness','$types')";
 
 	$conn->query($sql);
