@@ -1,9 +1,13 @@
 <?php
 
-$mysql_userB = 'root';
+/*$mysql_userB = 'root';
 $mysql_passB = '';
 $mysql_host = '127.0.0.1';
-$mysql_db = 'magic';
+$mysql_db = 'magic';*/
+$mysql_userB = 'fs_magic';
+$mysql_passB = 'lctKbMhX05wlD92E';
+$mysql_host = 'fractalsstudio.ipagemysql.com';
+$mysql_db = 'fs_magic';
 $conn = mysqli_connect($mysql_host,$mysql_userB,$mysql_passB,$mysql_db);
 
 if(isset($_GET['artist']) && isset($_GET['cmc']) && isset($_GET['colorIdentity']) && isset($_GET['colors']) && isset($_GET['edition']) && isset($_GET['manaCost'])
@@ -22,7 +26,7 @@ if(isset($_GET['artist']) && isset($_GET['cmc']) && isset($_GET['colorIdentity']
     $toughness = mysqli_real_escape_string($conn,$_GET['toughness']);
 	$types = mysqli_real_escape_string($conn,$_GET['types']);
 
-	$sql = "INSERT INTO cards (artist,cMC,colorIdentity,colors,edition,manaCost,name,power,rarity,texts,toughness,types) VALUES ('$artist','$cmc','$colorIdentity','$colors','$edition','$manaCost',
+	$sql = "INSERT INTO cards (artist,cmc,colorIdentity,colors,edition,manaCost,name,power,rarity,texts,toughness,types) VALUES ('$artist','$cmc','$colorIdentity','$colors','$edition','$manaCost',
 	'$name','$power','$rarity','$text','$toughness','$types')";
 
 	$conn->query($sql);
