@@ -8,6 +8,20 @@
             success: function (data) {
 
                 $.each(data, function (key, val) {
+                    //console.log(typeof val.colors === "undefined");
+                    if (typeof val.artist === "undefined") { val.artist = "empty"; console.log(val.artist); }
+                    if (typeof val.cmc === "undefined") { val.cmc = "empty"; console.log(val.cmc);}
+                    if (typeof val.colorIdentity === "undefined") { val.colorIdentity = "empty"; console.log(val.colorIdentity);}
+                    if (typeof val.colors === "undefined") { val.colors = "empty"; console.log(val.colors);}
+                    if (typeof val.edition === "undefined") { val.edition = "empty"; console.log(val.edition);}
+                    if (typeof val.manaCost === "undefined") { val.manaCost = "empty"; console.log(val.manaCost);}
+                    if (typeof val.name === "undefined") { val.name = "empty"; console.log(val.name);}
+                    if (typeof val.power === "undefined") { val.power = "empty"; console.log(val.power);}
+                    if (typeof val.rarity === "undefined") { val.rarity = "empty"; console.log(val.rarity);}
+                    if (typeof val.text === "undefined") { val.text = "empty"; console.log(val.text);}
+                    if (typeof val.toughness === "undefined") { val.toughness = "empty"; console.log(val.toughness);}
+                    if (typeof val.types === "undefined") { val.types = "empty"; console.log(val.types);}
+
 
                     var xmlhttp = new XMLHttpRequest();
                     xmlhttp.onreadystatechange = function () {
@@ -16,7 +30,8 @@
                         }
                     };
                     xmlhttp.open("GET", "php/magic.php?artist=" + val.artist + "&cmc=" + val.cmc + "&colorIdentity=" + val.colorIdentity + "&colors=" + val.colors + "&edition=" + val.edition
-                        + "&manaCost=" + val.manaCost + "&name=" + val.name + "&power=" + val.power + "&rarity=" + val.rarity + "&text=" + val.text + "&toughness=" + val.toughness + "&types=" + val.types, true);
+                        + "&manaCost=" + val.manaCost + "&name=" + val.name + "&power=" + val.power + "&rarity=" + val.rarity + "&text=" + val.text + "&toughness=" + val.toughness
+                        + "&types=" + val.types, true);
                     xmlhttp.send();
 
                 });
