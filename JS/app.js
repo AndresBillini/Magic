@@ -8,11 +8,10 @@
             success: function (data) {
 
                 $.each(data, function (key, val) {
-                    //console.log(typeof val.colors === "undefined");
                     if (typeof val.artist === "undefined") { val.artist = "empty"; console.log(val.artist); }
                     if (typeof val.cmc === "undefined") { val.cmc = "empty"; console.log(val.cmc);}
                     if (typeof val.colorIdentity === "undefined") { val.colorIdentity = "empty"; console.log(val.colorIdentity);}
-                    if (typeof val.colors === "undefined") { val.colors = "empty"; console.log(val.colors);}
+                    if (typeof val.color === "undefined") { val.colors = "empty"; console.log(val.color);}
                     if (typeof val.edition === "undefined") { val.edition = "empty"; console.log(val.edition);}
                     if (typeof val.manaCost === "undefined") { val.manaCost = "empty"; console.log(val.manaCost);}
                     if (typeof val.name === "undefined") { val.name = "empty"; console.log(val.name);}
@@ -29,7 +28,7 @@
                             document.getElementById("txtHint").innerHTML = this.responseText;
                         }
                     };
-                    xmlhttp.open("GET", "php/magic.php?artist=" + val.artist + "&cmc=" + val.cmc + "&colorIdentity=" + val.colorIdentity + "&colors=" + val.colors + "&edition=" + val.edition
+                    xmlhttp.open("GET", "php/magic.php?artist=" + val.artist + "&cmc=" + val.cmc + "&colorIdentity=" + val.colorIdentity + "&colors=" + val.color + "&edition=" + val.edition
                         + "&manaCost=" + val.manaCost + "&name=" + val.name + "&power=" + val.power + "&rarity=" + val.rarity + "&text=" + val.text + "&toughness=" + val.toughness
                         + "&types=" + val.types, true);
                     xmlhttp.send();

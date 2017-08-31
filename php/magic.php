@@ -1,14 +1,7 @@
 <?php
 
-/*$mysql_userB = 'root';
-$mysql_passB = '';
-$mysql_host = '127.0.0.1';
-$mysql_db = 'magic';*/
-$mysql_userB = 'fs_magic';
-$mysql_passB = 'lctKbMhX05wlD92E';
-$mysql_host = 'fractalsstudio.ipagemysql.com';
-$mysql_db = 'fs_magic';
-$conn = mysqli_connect($mysql_host,$mysql_userB,$mysql_passB,$mysql_db);
+//require('db-local.php');
+require('db.php');
 
 if(isset($_GET['artist']) && isset($_GET['cmc']) && isset($_GET['colorIdentity']) && isset($_GET['colors']) && isset($_GET['edition']) && isset($_GET['manaCost'])
 && isset($_GET['name']) && isset($_GET['power']) && isset($_GET['rarity']) && isset($_GET['text']) && isset($_GET['toughness']) && isset($_GET['types']) ){
