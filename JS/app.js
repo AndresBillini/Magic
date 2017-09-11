@@ -43,15 +43,18 @@
         });
     });
 
-    var name = document.getElementById('inputSearch');
-    name.addEventListener('input', function () {
+    var wrapper = document.getElementById('wrapper');
+    var name = document.getElementById('nameSearch');
+    var edition = document.getElementById('editionSearch');
+
+    wrapper.addEventListener('input', function () {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET", "php/search.php?name=" + name.value, true);
+        xmlhttp.open("GET", "php/search.php?name=" + name.value + "&edition=" + edition.value, true);
         xmlhttp.send();
     });
 });
