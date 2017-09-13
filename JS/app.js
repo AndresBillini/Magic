@@ -68,4 +68,13 @@
         xmlhttp.open("GET", "php/delete.php", true);
         xmlhttp.send();
     });
+
+
+    $.ajax({
+        url: "JS/test.js",
+        dataType: "script",
+        success: function () {
+            test();
+        }
+    });
 });
