@@ -5,17 +5,23 @@
     <title>Search Magic Cards</title>
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/magic.css" rel="stylesheet" />
 </head>
 <body>
-    <button class="btn btn-default" id="btnSubmit">Upload</button>
-    <button class="btn btn-danger" id="btnDelete">Delete</button>
+    <div class="btn-group" id="group">
+        <button class="btn btn-success" id="btnSubmit">Upload</button>
+        <button class="btn btn-danger" id="btnDelete">Delete</button>
+    </div>
+    
+    <hr />
+
     <div id="wrapper">
         <input class="input-sm" id="nameSearch" type="search" name="name" placeholder="Name" />
         <input class="input-sm" id="editionSearch" type="search" name="edition" placeholder="Edition" />
     </div>
-    
 
     <hr />
+
     <div class="col-lg-3" id="txtHint"></div>
 
 
